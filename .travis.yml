@@ -1,11 +1,11 @@
+os: linux
+dist: xenial
+language: python
+python: "3.8"
 arch:
     - amd64
     - arm64
 conan-linux: &conan-linux
-  os: linux
-  dist: xenial
-  language: python
-  python: "3.8"
   services:
     - docker
   install:
@@ -15,10 +15,6 @@ conan-linux: &conan-linux
   if: tag IS present
 
 conan-linux-master: &conan-linux-master
-  os: linux
-  dist: xenial
-  language: python
-  python: "3.8"
   services:
     - docker
   install:
@@ -28,12 +24,3 @@ conan-linux-master: &conan-linux-master
   branches:
     only:
     - master
-
-
-    - language: generic
-      os: linux
-      install:
-        - bash .travis/format_install.sh
-        
-      script:
-        - bash .travis/format_check.sh
