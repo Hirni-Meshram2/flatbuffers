@@ -1,20 +1,9 @@
-env:
-  global:
-    # Set at the root level as this is ignored when set under matrix.env.
-    - GCC_VERSION="4.9"
-    # Fail on first error if UBSAN or ASAN enabled for a target
-    - UBSAN_OPTIONS=halt_on_error=1
-    - ASAN_OPTIONS=halt_on_error=1
-    # Travis machines have 2 cores
-    - JOBS=2
-    - MAKEFLAGS="-j 2"
-
+arch:
+    - amd64
+    - arm64
 conan-linux: &conan-linux
   os: linux
   dist: xenial
-  arch:
-    - amd64
-    - arm64
   language: python
   python: "3.8"
   services:
